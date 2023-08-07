@@ -14,12 +14,6 @@ export default async function page_footer() {
 		<div>
 			<h4 style="font-weight: 500; color: #000;" class="mb-14">Sản phẩm bảo hiểm MIC</h4>
 			<p class="mb-8">
-				<a href="/product/id=bao-hiem-du-lich-trong-nuoc-mic">Du lịch trong nước</a>
-			</p>
-			<p class="mb-8">
-				<a href="/product/id=bao-hiem-du-lich-toan-cau-mic">Du lịch quốc tế</a>
-			</p>
-			<p class="mb-8">
 				<a href="/product/id=bao-hiem-tnds-xe-oto-mic">TNDS Ô tô</a>
 			</p>
 			<p class="mb-8">
@@ -28,9 +22,6 @@ export default async function page_footer() {
 		</div>
 		<div>
 			<h4 style="font-weight: 500; color: #000;" class="mb-14">Sản phẩm bảo hiểm PVI</h4>
-			<p class="mb-8">
-				<a href="/product/id=bao-hiem-xe-may-pvi">TNDS Mô tô</a>
-			</p>
 			<p class="mb-8">
 				<a href="/product/id=bao-hiem-xe-may-pvi">TNDS Mô tô</a>
 			</p>
