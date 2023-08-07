@@ -46,8 +46,8 @@ export default async function page_footer() {
 			<p class="mb-8">
 				<a href="mailto:info@1autocare.vn">info@1autocare.vn</a>
 			</p>
-			<p style="color: #F5B900;" class="mb-8">
-				Tầng 3 số 132, Nguyễn Khánh Toàn, Hà Nội
+			<p class="mb-8">
+				Số 10 đường 14, P. Phú Mỹ, Q.7, TP.HCM
 			</p>
 		</div>
 	</div>

@@ -1135,7 +1135,7 @@ hr {
   .call-to-action {
     padding: 20px 0 40px; } }
 .call-to-action .grid {
-  padding: 24px 16px;
+  padding: 40px 16px;
   width: 100%;
   background: #F5B900;
   grid-gap: 24px; }
@@ -1143,7 +1143,6 @@ hr {
     .call-to-action .grid {
       max-width: 90%;
       margin: 0 auto;
-      border-radius: 20px;
       padding: 40px;
       grid-template: auto / 1fr auto; } }
   @media (min-width: 1200px) {
@@ -1187,13 +1186,11 @@ hr {
   .home-page .hero .content.left {
     display: grid;
     grid-gap: 18px;
-    order: 1;
-    padding: 0 16px; }
+    order: 1; }
     @media (min-width: 1024px) {
       .home-page .hero .content.left {
         order: 0;
-        grid-gap: 28px;
-        padding: 0; } }
+        grid-gap: 28px; } }
     .home-page .hero .content.left h1 {
       font-weight: 600;
       font-size: 24px; }
@@ -1226,7 +1223,7 @@ hr {
       .home-page .hero .content.right {
         order: 1; } }
     .home-page .hero .content.right .image {
-      background: #E0F8FF url(../images/hero_xs.png) no-repeat center;
+      background: #E0F8FF url(../images/hero_md.png) no-repeat center;
       background-size: cover;
       padding-top: calc(9 / 16 * 100%); }
       @media (min-width: 1024px) {
@@ -1242,70 +1239,71 @@ hr {
       .home-page .hero .partner-glide .glide__arrows {
         display: block; } }
 .home-page .about {
-  background: #f4f4f4;
-  padding: 24px 0;
-  background: #f4f4f4; }
+  padding: 20px 0 40px; }
   @media (min-width: 768px) {
     .home-page .about {
-      padding: 40px 0; } }
+      padding: 20px 0 80px; } }
   .home-page .about .container {
-    grid-gap: 22px;
     display: grid;
-    align-items: center; }
-    @media (min-width: 1024px) {
-      .home-page .about .container {
-        grid-template: auto / 35% 1fr; } }
-  .home-page .about h2 {
-    font-size: 18px;
-    order: 1;
-    border-top: 1px solid #D9D9D9;
-    padding: 22px 0 0; }
-    @media (min-width: 1024px) {
-      .home-page .about h2 {
-        font-size: 24px;
-        order: 0;
-        padding: 0;
-        border: 0; } }
-    .home-page .about h2 span {
-      color: #F5B900; }
-  .home-page .about .number {
-    font-size: 40px;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    display: block; }
-    @media (min-width: 1024px) {
-      .home-page .about .number {
-        font-size: 52px; } }
-  .home-page .about .text {
-    color: #999;
-    display: block; }
-    @media (min-width: 1024px) {
-      .home-page .about .text {
-        font-size: 18px; } }
-  .home-page .about .grid {
-    grid-gap: 16px;
-    order: 0; }
+    grid-gap: 16px; }
     @media (min-width: 768px) {
-      .home-page .about .grid {
-        grid-template: auto/repeat(3, 1fr);
+      .home-page .about .container {
+        grid-gap: 24px;
+        grid-template: auto/repeat(3, 1fr); } }
+    @media (min-width: 1140px) {
+      .home-page .about .container {
         grid-gap: 40px; } }
-    @media (min-width: 1024px) {
-      .home-page .about .grid {
-        order: 0; } }
+    .home-page .about .container div {
+      padding: 18px;
+      border: 1px solid #D9D9D9;
+      display: flex;
+      align-items: center; }
+      @media (min-width: 768px) {
+        .home-page .about .container div {
+          padding: 24px;
+          font-size: 19px; } }
+      @media (min-width: 1140px) {
+        .home-page .about .container div {
+          padding: 32px; } }
+      .home-page .about .container div span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 58px;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: #fffaeb;
+        margin: 0 14px 0 0;
+        border: 1px solid #F5B900; }
+        @media (min-width: 1140px) {
+          .home-page .about .container div span {
+            margin: 0 24px 0 0; } }
 .home-page .products {
-  overflow: hidden; }
-  @media (min-width: 667px) {
-    .home-page .products {
-      background-size: 80%; } }
-  @media (min-width: 1024px) {
-    .home-page .products {
-      background-size: 60%; } }
+  overflow: hidden;
+  position: relative; }
   @media (min-width: 1200px) {
     .home-page .products {
-      padding: 40px 0 60px; } }
+      padding: 60px 0 100px; } }
+  .home-page .products::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #f4f4f4; }
+  .home-page .products h2 {
+    text-align: center;
+    margin-bottom: 28px; }
+    @media (min-width: 1140px) {
+      .home-page .products h2 {
+        margin-bottom: 40px; } }
   .home-page .products .container {
     overflow: auto;
-    padding: 28px 16px; }
+    padding: 28px 16px;
+    position: relative;
+    z-index: 1; }
     .home-page .products .container::-webkit-scrollbar {
       display: none; }
     @media (min-width: 1140px) {
@@ -1332,7 +1330,6 @@ hr {
     width: 240px;
     transition: .15s; }
     .home-page .products .item:hover {
-      background: #F3FDFF;
       box-shadow: 0px 12px 28px rgba(166, 173, 201, 0.25), 0px 4px 12px rgba(154, 160, 185, 0.2); }
       .home-page .products .item:hover h3 a {
         color: #2D63AF; }
@@ -1349,7 +1346,7 @@ hr {
         width: auto; } }
     .home-page .products .item .image {
       padding-top: calc(9 / 16 * 100%);
-      background: #E0F8FF no-repeat center;
+      background: #ffe8a3 no-repeat center;
       background-size: cover;
       border-radius: 12px;
       cursor: pointer;
@@ -1449,6 +1446,21 @@ hr {
           transition: .15s; }
       .home-page .articles .article .content time {
         color: #999; }
+.home-page .call-to-action {
+  background: transparent url(../images/cta_bg.jpg) no-repeat bottom center;
+  background-size: cover;
+  background-attachment: fixed; }
+  @media (min-width: 1024px) {
+    .home-page .call-to-action {
+      padding: 80px 0; } }
+  @media (min-width: 1140px) {
+    .home-page .call-to-action {
+      padding: 120px 0; } }
+  .home-page .call-to-action .grid {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px); }
+    .home-page .call-to-action .grid h3 {
+      color: #D9D9D9; }
 
 .articles-page .grid {
   display: grid; }

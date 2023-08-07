@@ -81,22 +81,17 @@ export const render = async () => {
 		div.classList.add('about');
 		div.innerHTML = `
 		<div class="container">
-			<h2>
-				Sản phẩm bảo hiểm được<br> khách hàng <span>quan tâm</span>
-			</h2>
-			<div class="grid">
-				<div>
-					<span class="number">10.688+</span>
-					<span class="text">Lượt mua</span>
-				</div>
-				<div>
-					<span class="number">35</span>
-					<span class="text">Sản phẩm bảo hiểm</span>
-				</div>
-				<div>
-					<span class="number">16</span>
-					<span class="text">Số nhà bảo hiểm</span>
-				</div>
+			<div>
+				<span><img src="/assets/images/car.svg"></span>
+				<p>Bảo hiểm thiệt hại vật chất đối với xe được bảo hiểm</p>
+			</div>
+			<div>
+				<span><img src="/assets/images/shield.svg"></span>
+				<p>Bảo hiểm trách nhiệm bên thứ ba</p>
+			</div>
+			<div>
+				<span><img src="/assets/images/team.svg"></span>
+				<p>Bảo hiểm cho lái xe và hành khách</p>
 			</div>
 		</div>
 		`;
@@ -110,9 +105,10 @@ export const render = async () => {
 		div.setAttribute('id', 'products');
 		div.innerHTML = `
 		<div class="container">
+			<h2>Các sản phẩm chúng tôi cung cấp</h2>
 			<div class="grid">
 				<div class="item">
-					<div class="image" style="background-image: url(https://portal.bhdt.vn/upload/insurance-package/mic---tnds-o-to.png)">
+					<div class="image" style="background-image: url(/assets/images/products/prd_1.jpg)">
 						<a href="/product/id=bao-hiem-tnds-xe-oto-mic"></a>
 					</div>
 					<h3>
@@ -121,7 +117,7 @@ export const render = async () => {
 					</h3>
 				</div>
 				<div class="item">
-					<div class="image" style="background-image: url(https://portal.bhdt.vn/upload/insurance-package/pvi---tnds-o-to.png)">
+					<div class="image" style="background-image: url(/assets/images/products/prd_2.jpg)">
 						<a href="/product/id=bao-hiem-xe-oto-pvi"></a>
 					</div>
 					<h3>
@@ -130,7 +126,7 @@ export const render = async () => {
 					</h3>
 				</div>
 				<div class="item">
-					<div class="image" style="background-image: url(https://portal.bhdt.vn/upload/insurance-package/mic---xe-may.png)">
+					<div class="image" style="background-image: url(/assets/images/products/prd_3.jpg)">
 						<a href="/product/id=bao-hiem-xe-may-mic"></a>
 					</div>
 					<h3>
@@ -139,7 +135,7 @@ export const render = async () => {
 					</h3>
 				</div>
 				<div class="item">
-					<div class="image" style="background-image: url(https://portal.bhdt.vn/upload/insurance-package/pvi---tnds-xe-may.png)">
+					<div class="image" style="background-image: url(/assets/images/products/prd_4.jpg)">
 						<a href="/product/id=bao-hiem-xe-may-pvi"></a>
 					</div>
 					<h3>
