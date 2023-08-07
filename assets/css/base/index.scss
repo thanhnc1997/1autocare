@@ -532,7 +532,7 @@ hr {
 	}
 	
 	.main-header {
-		padding: 16px 0 10px;
+		padding: 16px 0;
 		
 		@media (min-width: 1024px) {
 			padding: 26px 0 16px; 
@@ -547,10 +547,10 @@ hr {
 		}
 		
 		.logo {
-			width: 60px;
+			width: 50px;
 			
 			@media (min-width: 1024px) {
-				width: 90px;
+				width: 80px;
 			}
 		}
 		

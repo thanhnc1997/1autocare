@@ -10,13 +10,6 @@ import {
 	convert_timestamp
 } from '../helper.js';
 
-let logos = {
-	mic: {image: '/assets/images/partners/mic_insurance.png'},
-	pvi: {image: '/assets/images/partners/pvi_insurance.png'},
-	aig: {image: '/assets/images/partners/aig_insurance.png'},
-	chubb: {image: '/assets/images/partners/chubb_insurance.png'},
-}
-
 let icon_settings = {
 	chevron_left: {
 		width: 6,
@@ -39,35 +32,26 @@ export const render = async () => {
 	async function hero_section() {
 		let section = create_element('section');
 		section.classList.add('hero');
-		let partner_logo = '';
-		for (let [k, v] of Object.entries(logos)) {
-			partner_logo += `
-			<li class="glide__slide text-center">
-				<img src="${v.image}" alt="${k}">
-			</li>
-			`;
-		}
 		
 		section.innerHTML = `
 		<div class="container">
-			<div class="content left">
-				<h1>Bảo hiểm số trong <span>5 phút.</span></h1>
-				<p>
-					Chúng tôi đem lại giải pháp công nghệ giúp cho người dùng có thể lựa chọn các sản phẩm đa dạng với thông tin chính xác minh bạch. Tận dụng tối đa các dịch vụ bảo hiểm mà chúng tôi lựa chọn và cung cấp.
-				</p>
-				<div class="btn-group d-flex mb-14">
-					<a href="tel:19002266" class="btn btn-yellow mr-12">Nhận tư vấn ngay</a>
-					<button type="button" class="btn btn-outline-yellow">Trở thành đại lý</button>
+			<div class="image"></div>
+			<div class="wrapper">
+				<div class="content left">
+					<h1>Bảo hiểm số trong <span>5 phút.</span></h1>
+					<p>
+						Chúng tôi đem lại giải pháp công nghệ giúp cho người dùng có thể lựa chọn các sản phẩm đa dạng với thông tin chính xác minh bạch. Tận dụng tối đa các dịch vụ bảo hiểm mà chúng tôi lựa chọn và cung cấp.
+					</p>
+					<div class="btn-group d-flex mb-14">
+						<a href="tel:19002266" class="btn btn-yellow mr-12">Nhận tư vấn ngay</a>
+						<button type="button" class="btn btn-light">Trở thành đại lý</button>
+					</div>
 				</div>
-				
-			</div>
-			<div class="content right">
-				<div class="image"></div>
 			</div>
 		</div>
 		`;
 		
-		section.querySelector('.btn-outline-yellow').addEventListener('click', async () => {
+		section.querySelector('.btn-light').addEventListener('click', async () => {
 			let block = await import('../components/sign_up_modal.js');
 			document.body.appendChild(await block.render());
 			document.body.classList.add('overflow-hidden');
