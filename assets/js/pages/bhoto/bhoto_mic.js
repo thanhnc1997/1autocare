@@ -463,7 +463,6 @@ export const render = async (params) => {
 				<select class="select" name="insurance_period" required>
 					<option value="1" selected>1 năm</option>
 					<option value="2">2 năm</option>
-					<option value="3">3 năm</option>
 				</select>
 			</div>
 		</div>

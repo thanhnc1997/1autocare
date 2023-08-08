@@ -85,7 +85,7 @@ let fee_charge = {
 	}
 }
 
-let insurance_period = ['1', '2', '3'];
+let insurance_period = ['1', '2'];
 let	typing_timer = null;
 let current_order = {};
 

@@ -67,12 +67,14 @@ export const render = async (params) => {
 		<div class="card" style="margin-bottom: 14px;">
 			<div class="row">
 				<div class="col-6 col-md-3">
+					<span class="label">Doanh thu</span>
 					<select class="input" name="by_child">
-						<option selected>Doanh thu cá nhân</option>
-						<option>Doanh thu nhân viên</option>
+						<option selected>Cá nhân</option>
+						<option>Nhân viên</option>
 					</select>
 				</div>
 				<div class="col-6 col-md-3">
+					<span class="label">Thời gian</span>
 					<select class="input" name="by_time">
 						<option value="today">Hôm nay</option>
 						<option value="yesterday">Hôm qua</option>

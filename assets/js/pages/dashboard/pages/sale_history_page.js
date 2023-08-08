@@ -15,12 +15,13 @@ import {
 import dashboard_nav from '../../../components/dashboard_nav.js';
 
 let sale_history = {
-	name: '',
+	codeContract: '',
 	providerCode: '',
 	byChild: false
 }
 
 let customer_type = '';
+let typing_timer = null;
 
 let icon_settings = {
 	dots_h: {
@@ -65,6 +66,16 @@ export const render = async (params) => {
 		let div = create_element('div');
 		div.innerHTML = `
 		<h3 class="section-title small">Lịch sử đơn hàng</h3>
+
+		<div class="card" style="margin-bottom: 14px;">
+			<div class="row">
+				<div class="col-6 col-md-3">
+					<span class="label">Mã hợp đồng</span>
+					<input class="input" type="text" name="code" placeholder="Nhập mã hợp đồng">
+				</div>
+			</div>
+		</div>
+		
 		<div class="card">
 			<nav class="table-pagination">
 				<span class="page"></span>
@@ -103,20 +114,7 @@ export const render = async (params) => {
 				prev = div.querySelector('.table-pagination .prev'),
 				next = div.querySelector('.table-pagination .next'),
 				select = div.querySelector('.table-pagination [name="records"]');
-		/*
-		table.querySelector('[name="check_all"]').addEventListener('change', (e) => {
-			if (e.target.checked == true) {
-				table.querySelectorAll('tbody input[type="checkbox"]').forEach(input => {
-					input.checked = true;
-				});
-			}
-			else {
-				table.querySelectorAll('tbody input[type="checkbox"]').forEach(input => {
-					input.checked = false;
-				});
-			}
-		});
-		*/
+		
 		prev.addEventListener('click', async () => {
 			load_record_per_page('des');
 		});
@@ -129,6 +127,16 @@ export const render = async (params) => {
 			limit = e.target.value;
 			get_sale_history_request.url = bhdt_api + api_end_point.sale_history + `?crPage=1&maxRow=${limit}`;
 			await load_record_per_page();
+		});
+		
+		div.querySelector('[name="code"]').addEventListener('input', async (e) => {
+			clearTimeout(typing_timer);
+			typing_timer = setTimeout(async () => {
+				await loader();
+				sale_history.codeContract = e.target.value;
+				get_sale_history_request.body = sale_history;
+				await fetch_data(get_sale_history_request);
+			}, 400);			
 		});
 		
 		return div;
