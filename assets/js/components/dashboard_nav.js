@@ -17,6 +17,10 @@ let router = [
 		url: '/dashboard/sale-history'
 	},
 	{
+		text: 'Thống kê hợp đồng',
+		url: '/dashboard/contract-statistics'
+	},
+	{
 		text: 'Doanh thu',
 		url: '/dashboard/revenue'
 	}
@@ -40,9 +44,9 @@ let icon_settings = {
 let pathname = location.pathname;
 
 export default async function dashboard_nav(params) {
-	let {local, data} = params;
+	let {name, type_customer} = params;
 	
-	if (data && data.data.typeCustomer != 'agent') {
+	if (params && type_customer != 'agent') {
 		router = [
 			{
 				text: 'Trang cá nhân',
@@ -68,14 +72,12 @@ export default async function dashboard_nav(params) {
 		<h3>
 			<span style="font-size: 20px;">👋</span>
 			<span class="text-secondary"> Welcome back, </span> 
-			<b>${local.name}</b>
+			<b>${name}</b>
 		</h3>
 		<button type="button" class="btn btn-light nav-trigger">${render_icon.hamburger(icon_settings.hamburger)}</button>
 	</div>
 	
-	<ul>
-		
-	</ul>
+	<ul></ul>
 	`;
 	
 	router.map(nav_link => {

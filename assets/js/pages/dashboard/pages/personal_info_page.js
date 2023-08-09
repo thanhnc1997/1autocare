@@ -10,8 +10,6 @@ import {
 	render_icon
 } from '../../../helper.js';
 
-import dashboard_nav from '../../../components/dashboard_nav.js';
-
 let icon_settings = {
 	circle_warning: {
 		width: 14,
@@ -42,10 +40,21 @@ let icon_settings = {
 export const render = async (params) => {
 	let {user_local_storage} = params;
 	
-	let template = create_element('div');
-	template.classList.add('dashboard');
+	let template = create_element('section');
 	let container = create_element('div');
 	container.classList.add('container');
+	
+	let update_profile_request = {
+		method: 'POST',
+		url: bhdt_api + api_end_point.profile + '/update',
+		auth: user_local_storage['user'],
+		api_key: user_local_storage['api_key'],
+		body: {},
+		show_message: true,
+		async callback() {
+			await remove_loader();
+		}
+	}
 	
 	async function personal_infomation(params) {
 		let {fullName, phone, email, code} = params.data;
@@ -56,24 +65,38 @@ export const render = async (params) => {
 			<div class="row">
 				<div class="col-md-6 mb-14">
 					<span class="label">Họ & tên</span>
-					<input class="input" type="text" placeholder="Họ & tên" name="user_name" value="${fullName}" readonly>
+					<input class="input" type="text" placeholder="Họ & tên" name="user_name" value="${fullName}">
 				</div>
 				<div class="col-md-6 mb-14">
 					<span class="label">SĐT</span>
-					<input class="input" type="text" placeholder="SĐT" name="user_phone" value="${phone}" readonly>
+					<input class="input" type="text" placeholder="SĐT" name="user_phone" value="${phone}">
 				</div>
 				<div class="col-md-6 mb-14">
 					<span class="label">Email</span>
-					<input class="input" type="text" placeholder="Email" name="user_email" value="${email}" readonly>
+					<input class="input" type="text" placeholder="Email" name="user_email" value="${email}">
 				</div>
 				<div class="col-md-6 mb-14">
 					<span class="label">Mã giới thiệu</span>
-					<input class="input" type="text" placeholder="Mã giới thiệu" name="user_code" value="" readonly>
+					<input class="input" type="text" placeholder="Mã giới thiệu" name="user_code" value="" disabled>
 				</div>
 			</div>
 			<p class="text-right"><button type="button" class="btn btn-primary">Cập nhật</button></p>
 		</div>
 		`;
+		
+		let user_fullname = div.querySelector('[name="user_name"]'),
+				user_phone = div.querySelector('[name="user_phone"]'),
+				user_email = div.querySelector('[name="user_email"]');
+		
+		div.querySelector('.btn-primary').addEventListener('click', async (e) => {
+			update_profile_request.body = {
+				fullName: user_fullname.value,
+				phone: user_phone.value,
+				email: user_email.value
+			}
+			await loader();
+			await fetch_data(update_profile_request);
+		});
 		
 		return div;
 	}
@@ -185,10 +208,6 @@ export const render = async (params) => {
 		auth: user_local_storage['user'],
 		api_key: user_local_storage['api_key'],
 		async callback(params) {
-			template.appendChild(await dashboard_nav({
-				local: user_local_storage,
-				data: params
-			}));
 			container.appendChild(await personal_infomation(params));
 			container.appendChild(await change_password(params));
 			template.appendChild(container);

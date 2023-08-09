@@ -9,8 +9,6 @@ import {
 	remove_loader
 } from '../../../helper.js';
 
-import dashboard_nav from '../../../components/dashboard_nav.js';
-
 let icon_settings = {
 	dots_h: {
 		width: 14,
@@ -75,25 +73,9 @@ let skip = 1,
 export const render = async (params) => {
 	let {user_local_storage} = params;
 	
-	let template = create_element('div');
-	template.classList.add('dashboard');
+	let template = create_element('section');
 	let container = create_element('div');
 	container.classList.add('container');
-	
-	let get_info_request = {
-		url: bhdt_api + api_end_point.profile,
-		method: 'POST',
-		auth: user_local_storage['user'],
-		api_key: user_local_storage['api_key'],
-		async callback(params) {
-			template.appendChild(await dashboard_nav({
-				local: user_local_storage,
-				data: params
-			}));
-			container.appendChild(await sale_list(params));
-			template.appendChild(container);
-		}
-	}
 	
 	let get_agent_list = {
 		url: bhdt_api + api_end_point.sale_agent + '/list' + `?crPage=${skip}&maxRow=${limit}`,
@@ -479,7 +461,8 @@ export const render = async (params) => {
 		});
 	}
 	
-	await fetch_data(get_info_request);
+	container.appendChild(await sale_list());
+	template.appendChild(container);
 	await fetch_data(get_agent_list);
 	
 	return template;

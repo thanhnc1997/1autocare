@@ -10,8 +10,6 @@ import {
 	remove_loader
 } from '../../../helper.js';
 
-import dashboard_nav from '../../../components/dashboard_nav.js';
-
 let icon_settings = {
 	dots_h: {
 		width: 14,
@@ -48,14 +46,12 @@ let sale_history = {
 
 let skip = 1,
 		limit = 10,
-		total_page = 0,
-		total_revenue = 0
+		total_page = 0
 
 export const render = async (params) => {
 	let {user_local_storage} = params;
 	
-	let template = create_element('div');
-	template.classList.add('dashboard');
+	let template = create_element('section');
 	let container = create_element('div');
 	container.classList.add('container');
 	
@@ -173,24 +169,10 @@ export const render = async (params) => {
 		}
 	}
 	
-	let get_info_request = {
-		url: bhdt_api + api_end_point.profile,
-		method: 'POST',
-		auth: user_local_storage['user'],
-		api_key: user_local_storage['api_key'],
-		async callback(params) {
-			template.appendChild(await dashboard_nav({
-				local: user_local_storage,
-				data: params
-			}));
-			container.appendChild(await sale_list(params));
-			template.appendChild(container);
-		}
-	}
-	
 	async function render_revenue(params) {
 		template.querySelector('tbody').innerHTML = '';
 		let {datas} = params;
+		let total_revenue = 0;
 		datas.map(async (item, index) => {
 			let {phone, fullName, status, email, totalRevenue} = item;
 			let tr = create_element('tr');
@@ -212,7 +194,8 @@ export const render = async (params) => {
 		container.querySelector('div').insertBefore(await total_result({total: total_revenue}), container.querySelector('.card'));
 	}
 	
-	await fetch_data(get_info_request);
+	container.appendChild(await sale_list());
+	template.appendChild(container);
 	await fetch_data(get_revenue_request);
 	
 	return template;

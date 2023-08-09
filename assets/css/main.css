@@ -1202,8 +1202,10 @@ hr {
   grid-gap: 18px;
   margin-bottom: 32px;
   background: transparent;
-  padding: 24px 0;
-  max-width: 80%; }
+  padding: 24px 0; }
+  @media (min-width: 667px) {
+    .home-page .hero .content.left {
+      max-width: 80%; } }
   @media (min-width: 1024px) {
     .home-page .hero .content.left {
       order: 0;
@@ -1220,7 +1222,7 @@ hr {
     position: relative; }
     @media (min-width: 768px) {
       .home-page .hero .content.left h1 {
-        font-size: 38px; } }
+        font-size: 35px; } }
     @media (min-width: 1024px) {
       .home-page .hero .content.left h1 {
         color: #fff; } }

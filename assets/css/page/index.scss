@@ -102,7 +102,10 @@
 			margin-bottom: 32px;
 			background: transparent;
 			padding: 24px 0;
-			max-width: 80%;
+			
+			@media (min-width: 667px) {
+				max-width: 80%;
+			}
 			
 			@media (min-width: 1024px) {
 				order: 0;
@@ -121,7 +124,7 @@
 				position: relative;
 				
 				@media (min-width: 768px) {
-					font-size: 38px;
+					font-size: 35px;
 				}
 				
 				@media (min-width: 1024px) {

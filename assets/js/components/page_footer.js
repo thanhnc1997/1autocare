@@ -9,7 +9,7 @@ export default async function page_footer() {
 	<div class="container">
 		<div>
 			<p class="mb-14"><a style="font-weight: 500; color: #000;" href="#">Điều khoản sử dụng</a></p>
-			<p style="font-weight: 500; color: #000;" class="mb-14">© 2023 1Auto Care.</p>
+			<p style="font-weight: 500; color: #000;" class="mb-14">© 2023 GFTech LTD.</p>
 		</div>
 		<div>
 			<h4 style="font-weight: 500; color: #000;" class="mb-14">Sản phẩm bảo hiểm MIC</h4>
@@ -32,7 +32,7 @@ export default async function page_footer() {
 		<div>
 			<h4 style="font-weight: 500; color: #000;" class="mb-14">Liên hệ</h4>
 			<p class="mb-8">
-				<a href="tel:+84 866 787 939">+84 (0) 866 787 939</a>
+				<a href="tel:+84 866 787 939">+84 866 787 939</a>
 			</p>
 			<p class="mb-8">
 				<a href="mailto:info@1autocare.vn">info@1autocare.vn</a>

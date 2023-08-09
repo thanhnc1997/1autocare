@@ -38,7 +38,7 @@ export const render = async () => {
 			<div class="image"></div>
 			<div class="wrapper">
 				<div class="content left">
-					<h1>Bảo hiểm số trong <span>5 phút.</span></h1>
+					<h1><span>Chuẩn mực </span>từ sự lựa chọn.</h1>
 					<p>
 						Chúng tôi đem lại giải pháp công nghệ giúp cho người dùng có thể lựa chọn các sản phẩm đa dạng với thông tin chính xác minh bạch. Tận dụng tối đa các dịch vụ bảo hiểm mà chúng tôi lựa chọn và cung cấp.
 					</p>

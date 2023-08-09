@@ -50,13 +50,14 @@ export const render = async () => {
 	}
 	
 	async function handle_sign_in(params) {
-		let {token, username, apiKey} = params.data;
+		let {token, username, apiKey, typeCustomer} = params.data;
 		await set_local_storage({
 			name: 'user',
 			value: {
 				user: token,
 				name: username,
-				api_key: apiKey
+				api_key: apiKey,
+				type_customer: typeCustomer
 			},
 			async callback() {
 				await remove_local_storage({name: 'guest'})

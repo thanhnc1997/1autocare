@@ -12,12 +12,10 @@ import {
 	convert_timestamp
 } from '../../../helper.js';
 
-import dashboard_nav from '../../../components/dashboard_nav.js';
-
 let sale_history = {
 	codeContract: '',
 	providerCode: '',
-	byChild: false
+	byChild: true
 }
 
 let customer_type = '';
@@ -56,9 +54,12 @@ let skip = 1,
 
 export const render = async (params) => {
 	let {user_local_storage} = params;
+	if (user_local_storage.type_customer == 'agent') {
+		sale_history['byChild'] = false;
+		customer_type = 'agent';
+	}
 	
-	let template = create_element('div');
-	template.classList.add('dashboard');
+	let template = create_element('section');
 	let container = create_element('div');
 	container.classList.add('container');
 	
@@ -72,6 +73,19 @@ export const render = async (params) => {
 				<div class="col-6 col-md-3">
 					<span class="label">Mã hợp đồng</span>
 					<input class="input" type="text" name="code" placeholder="Nhập mã hợp đồng">
+				</div>
+				<div class="col-6 col-md-3">
+					<span class="label">Thời gian</span>
+					<select class="input" name="by_time">
+						<option value="today">Hôm nay</option>
+						<option value="yesterday">Hôm qua</option>
+						<option value="7_day">7 ngày trước</option>
+						<option value="30_day">30 ngày trước</option>
+						<option selected value="this_month">Tháng này</option>
+						<option value="last_month">Tháng trước</option>
+						<option value="this_year">Năm nay</option>
+						<option value=last_year"">Năm trước</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -162,26 +176,6 @@ export const render = async (params) => {
 		get_sale_history_request.url = bhdt_api + api_end_point.sale_history + `?crPage=${skip}&maxRow=${limit}`;
 		await loader();
 		await fetch_data(get_sale_history_request);
-	}
-	
-	let get_info_request = {
-		url: bhdt_api + api_end_point.profile,
-		method: 'POST',
-		auth: user_local_storage['user'],
-		api_key: user_local_storage['api_key'],
-		async callback(params) {
-			if (params['data']['typeCustomer'] == 'agent') {
-				// sale_history['byChild'] = true;
-				sale_history['byChild'] = false;
-				customer_type = 'agent';
-			}
-			template.appendChild(await dashboard_nav({
-				local: user_local_storage,
-				data: params
-			}));
-			container.appendChild(await sale_list(params));
-			template.appendChild(container);
-		}
 	}
 	
 	let get_sale_history_request = {
@@ -399,7 +393,8 @@ export const render = async (params) => {
 		return div;
 	}
 	
-	await fetch_data(get_info_request);
+	container.appendChild(await sale_list());
+	template.appendChild(container);
 	await fetch_data(get_sale_history_request);
 	
 	window.addEventListener('mouseup', (e) => {

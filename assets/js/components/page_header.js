@@ -49,7 +49,11 @@ let router = [
 	},
 	{
 		text: 'Sản phẩm',
-		url: '#products'
+		url: 'products'
+	},
+	{
+		text: 'Tin tức',
+		url: 'articles'
 	}
 ]
 
@@ -80,7 +84,7 @@ export default async function page_header() {
 			</span>
 			<span class="item">
 				${render_icon.phone(icon_settings.phone)}
-				<span>+84 (0) 866 787 939</span>
+				<span>+84 866 787 9396</span>
 			</span>
 		</div>
 		`;
@@ -96,8 +100,8 @@ export default async function page_header() {
 			<a class="logo" href="/"><img src="/assets/images/logo.png"></a>
 			<nav class="main-nav">
 				<ul></ul>
-				<p class="no-pc mb-14">Hotline:  <b>+84 (0) 866 787 939</b></p>
-				<p class="no-pc">Email:  <b>info@1autocare.vn</b></p>
+				<p class="no-pc mb-14">Hotline:  <b style="color: #3B71CA;">19002266</b></p>
+				<p class="no-pc">Email:  <b style="color: #3B71CA;">info@bhdt.vn</b></p>
 			</nav>
 			<div class="options-bar">
 				${
@@ -115,7 +119,7 @@ export default async function page_header() {
 					</div>
 				</div>
 				`
-				: `<button id="sign_in" type="button" class="btn btn-yellow">Đăng nhập</button>`
+				: `<button id="sign_in" type="button" class="btn btn-cyan">Đăng nhập</button>`
 				}
 				<button type="button" class="btn btn-light nav-trigger">${render_icon.hamburger(icon_settings.hamburger)}</button>
 			</div>

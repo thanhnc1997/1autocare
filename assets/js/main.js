@@ -85,7 +85,12 @@ async function init_app() {
 	//
 	// dashboard
 	//
-	if (location.pathname.includes('/dashboard')) render.dashboard();
+	if (location.pathname.includes('/dashboard')) {
+		let script_tag = create_element('script');
+		script_tag.setAttribute('src', '/assets/libs/chart/chart.min.js');
+		document.body.insertBefore(script_tag, document.body.querySelector('script'));
+		render.dashboard();
+	} 
 	//
 	// home page
 	//

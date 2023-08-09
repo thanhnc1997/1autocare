@@ -8,9 +8,12 @@ import {
 } from '../../helper.js';
 
 let user_local_storage = await get_local_storage({name: 'user'});
+import dashboard_nav from '../../components/dashboard_nav.js';
 
 export const render = async () => {
 	let div = create_element('div');
+	div.classList.add('dashboard');
+	div.appendChild(await dashboard_nav(user_local_storage));
 	
 	if (location.pathname == '/dashboard') {
 		let block = await import('./pages/personal_info_page.js');
@@ -42,6 +45,13 @@ export const render = async () => {
 	
 	if (location.pathname == '/dashboard/buy-history') {
 		let block = await import('./pages/buy_history_page.js');
+		div.appendChild(await block.render({
+			user_local_storage: user_local_storage
+		}));
+	}
+	
+	if (location.pathname == '/dashboard/contract-statistics') {
+		let block = await import('./pages/contract_statistics_page.js');
 		div.appendChild(await block.render({
 			user_local_storage: user_local_storage
 		}));
