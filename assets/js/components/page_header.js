@@ -49,11 +49,7 @@ let router = [
 	},
 	{
 		text: 'Sản phẩm',
-		url: 'products'
-	},
-	{
-		text: 'Tin tức',
-		url: 'articles'
+		url: '#products'
 	}
 ]
 
@@ -119,7 +115,7 @@ export default async function page_header() {
 					</div>
 				</div>
 				`
-				: `<button id="sign_in" type="button" class="btn btn-cyan">Đăng nhập</button>`
+				: `<button id="sign_in" type="button" class="btn btn-yellow">Đăng nhập</button>`
 				}
 				<button type="button" class="btn btn-light nav-trigger">${render_icon.hamburger(icon_settings.hamburger)}</button>
 			</div>

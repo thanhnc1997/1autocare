@@ -20,7 +20,7 @@ const api_end_point = {
 }
 
 // const bhdt_api = 'https://portal.bhdt.vn/api/';
-const bhdt_api = 'https://portal-dev.bhdt.vn/api/';
+const bhdt_api = 'https://portal.bhdt.vn/api/';
 const bhtd_main = 'https://bhdt.vn/api/';
 
 const url_callback = bhtd_main + api_end_point.payment + '/payment-callback';

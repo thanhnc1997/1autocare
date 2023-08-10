@@ -98,6 +98,7 @@ async function init_app() {
 	//
 	// article
 	//
+	/*
 	if (pathname == '/articles') render.articles();
 
 	if (pathname.includes('/articles/id')) {
@@ -112,6 +113,7 @@ async function init_app() {
 		}
 		fetch_data(article_detail_request);
 	}
+	*/
 	//
 	// product
 	//
